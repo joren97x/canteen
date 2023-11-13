@@ -14,6 +14,6 @@ class CartController extends Controller
             'quantity' => 'required'
         ]);
         Cart::create($foodToCart);
-        return view('Customer.cart');
+        return view('Student.cart');
     }
 }

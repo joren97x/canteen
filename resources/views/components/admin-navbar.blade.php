@@ -24,7 +24,6 @@
                                 Welcome asdasdas
                             </a>
                         </li>
-                        
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/sign-in" role="button">
                                 Logout

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use Illuminate\Http\Request;
+use Spatie\FlareClient\View;
 
 class FoodController extends Controller
 {
@@ -16,6 +17,11 @@ class FoodController extends Controller
             'image' => 'required'
         ]);
         Food::create($food);
-        return view('Customer.food-zone', ['foods' => Food::all()]);
+        return view('Student.food-zone', ['foods' => Food::all()]);
     }
+
+    public function create() {
+        return view('Admin.add-food');
+    }
+
 }

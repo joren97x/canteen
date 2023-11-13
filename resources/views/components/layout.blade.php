@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    @include('components.customer-navbar')
+    @include('components.student-navbar')
     <div>
         @yield('content')
     </div>
