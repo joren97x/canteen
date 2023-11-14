@@ -17,11 +17,11 @@ class FoodController extends Controller
             'image' => 'required'
         ]);
         Food::create($food);
-        return view('Student.food-zone', ['foods' => Food::all()]);
+        return view('admin.add-food');
     }
 
     public function create() {
-        return view('Admin.add-food');
+        return view('admin.add-food');
     }
 
 }
