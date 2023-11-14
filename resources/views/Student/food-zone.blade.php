@@ -28,12 +28,12 @@
                 <div class="col-3 p-3">
                     <div class="card">
                         <img src="https://www.foodandwine.com/thmb/_hz1-1jxHmNJxNLZxIjlOs2QQ3E=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg" class="card-img-top" alt="...">
-                    <form action="/add-to-cart" method="POST">
+                    <form action="/student/add-to-cart" method="POST">
                         @csrf
                         <div class="card-body">
                             <h5 class="card-title">{{ $food->name }}</h5>
                             <p class="card-text">{{ $food->description }}</p>
-                            <input type="hidden" name="food_id" value="{{$food->id}}">
+                            <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                             <input type="hidden" name="food_id" value="{{$food->id}}">
                             <label for="quantity" class="form-label">Quantity: </label>
                             <input id="quantity" type="number" name="quantity" class="form-control" value="1">

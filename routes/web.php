@@ -29,7 +29,7 @@ Route::get('/admin/add-food', [FoodController::class, 'create']);
 
 
 Route::post('/add-food', [FoodController::class, 'store']);
-Route::post('/add-to-cart', [CartController::class, 'store']);
+Route::post('/student/add-to-cart', [CartController::class, 'store']);
 Route::get('/contact-us', function () {
     return view('Student.contact-us');
 });
@@ -38,9 +38,8 @@ Route::get('/student/food-zone', function () {
     return view('Student.food-zone', ['foods' => Food::all()]);
 });
 
-Route::get('/student/cart', function () {
-    return view('Student.cart');
-});
+Route::get('/student/cart', [CartController::class, 'index']);
+Route::post('/student/payment', [CartController::class, 'payment']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/student/sign-up', [AuthController::class, 'student_sign_up']);

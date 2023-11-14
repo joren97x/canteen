@@ -30,7 +30,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/student/cart" role="button">
-                                Cart(0)
+                                Cart(n)
                             </a>
                         </li>
                         <li class="nav-item dropdown">
@@ -44,7 +44,7 @@
                 <div class="d-flex me-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <div class="dropdown navlink me-4">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Sign-up
                             </button>
                             <ul class="dropdown-menu">
@@ -53,7 +53,7 @@
                             </ul>
                           </div>
                         <div class="dropdown navlink me-4">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Sign-in
                             </button>
                             <ul class="dropdown-menu">

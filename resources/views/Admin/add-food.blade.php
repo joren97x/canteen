@@ -7,15 +7,15 @@
     <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> ADD NEW FOOD ITEM HERE </h3>
 
     <div class="form-group">
-      <input type="text" class="form-control my-2" id="name" name="name" placeholder="Your Food name" required="">
+      <input type="text" class="form-control my-2" id="name" name="name" placeholder="name">
     </div>
 
     <div class="form-group">
-      <input type="text" class="form-control my-2" id="price" name="price" placeholder="Your Food Price (INR)" required="">
+      <input class="form-control my-2" type="number" id="price" name="price" placeholder="price">
     </div>
 
     <div class="form-group">
-      <input type="text" class="form-control my-2" id="description" name="description" placeholder="Your Food Description" required="">
+      <input type="text" class="form-control my-2" id="description" name="description" placeholder="description">
     </div>
 
     <div class="form-group">
