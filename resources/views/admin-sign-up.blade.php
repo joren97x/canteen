@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="text-center">ADMIN Sign up page</h1>
-        <form class="mb-5" method="POST" action="/sign-up">
+        <form class="mb-5" method="POST" action="/admin/sign-up">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Full name</label>
@@ -25,30 +25,31 @@
                 @error('email')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-              </div>
-              <div class="mb-3">
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contact</label>
                 <input class="form-control" id="exampleInputPassword1" value="{{ old('contact') }}" name="contact">
                 @error('contact')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-              </div>
-              <div class="mb-3">
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Address</label>
                 <input class="form-control" id="exampleInputPassword1" value="{{ old('address') }}" name="address">
                 @error('address')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-              </div>
-              <div class="mb-3">
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" value="{{ old('password') }}" name="password">
                 @error('password')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-              </div>
+            </div>
+            <input type="hidden" name="role" value="admin">
             <button type="submit" class="btn btn-primary">Sign-up</button>
-          </form>
+        </form>
     </div>
 @endsection
 

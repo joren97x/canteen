@@ -20,12 +20,15 @@
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="/sign-up" role="button">
-                                Welcome asdasdas
+                            <a class="nav-link text-light" href="/sign-up" role="button">
+                                Welcome {{ auth()->user()->username }}!
                             </a>
                         </li>
+                        <li class="nav-item nav-link text-light dropdown">
+                                Admin control panel
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-light" href="/sign-in" role="button">
+                            <a class="nav-link text-light" href="/logout" role="button">
                                 Logout
                             </a>
                         </li>

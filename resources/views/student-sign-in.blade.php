@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-center">STUDENT Sign in page </h1>
     <div class="container">
-        <form action="/sign-in" method="POST">
+        <form action="/student/sign-in" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -26,6 +26,7 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Remember me</label>
             </div>
+            <input type="hidden" name="role" value="student">
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
     </div>

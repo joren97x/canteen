@@ -5,37 +5,53 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
 
 class AuthController extends Controller
 {
-    //
-    public function sign_up(Request $request) {
+    //store student
+    public function store(Request $request) {
         $user = $request->validate([
             'fullname' => 'required',
             'username' => 'required',
             'email' => 'required',
             'contact' => 'required',
             'address' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'role' => 'required'
         ]);
-        
         User::create($user);
-        return redirect('/sign-in');
+        if($user['role'] == "admin") {
+            return redirect('/admin/sign-in');
+        }
+        else {
+            return redirect('/student/sign-in');
+        }
 
     }
 
-    public function sign_in(Request $request) {
+    public function login(Request $request) {
         $user = $request->validate([
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'role' => 'required'
         ]);
-
         if(Auth::attempt($user)) {
-            Auth::login(User::where('email', $user['email'])->first());
-            return redirect('/');
+            if($user['role'] == "admin") {
+                return redirect('/admin/add-food');
+            }
+            else {
+                return redirect('/student/food-zone');
+            }
         }
         return back()->withErrors(['loginError' => 'Invalid credentials']);
+    }
+
+    public function logout(Request $request) {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 
     public function student_sign_up() {
@@ -54,12 +70,7 @@ class AuthController extends Controller
         return view('admin-sign-in');
     }
 
-    public function student_store(Request $request) {
-        dd($request);
-    }
+    
 
-    public function admin_store(Request $request) {
-        dd($request);
-    }
-
+    
 }

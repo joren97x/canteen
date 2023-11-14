@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1 class="text-center">STUDENT Sign up page</h1>
-        <form class="mb-5" method="POST" action="/sign-up">
+        <form class="mb-5" method="POST" action="/student/sign-up">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Full name</label>
@@ -47,6 +47,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
               </div>
+              <input type="hidden" name="role" value="student">
             <button type="submit" class="btn btn-primary">Sign-up</button>
           </form>
     </div>

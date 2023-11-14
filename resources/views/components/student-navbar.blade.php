@@ -20,52 +20,52 @@
             @auth
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="/sign-up" role="button">
-                                Welcome asdasdas
-                            </a>
+                        <li class="nav-item nav-link text-light dropdown">
+                                Welcome {{auth()->user()->username}}!
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-light" href="/food-zone" role="button">
+                            <a class="nav-link text-light" href="/student/food-zone" role="button">
                                 Food Zone
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-light" href="/cart" role="button">
+                            <a class="nav-link text-light" href="/student/cart" role="button">
                                 Cart(0)
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-light" href="/sign-in" role="button">
+                            <a class="nav-link text-light" href="/logout" role="button">
                                 Logout
                             </a>
                         </li>
                     </ul>
                 </div>
+                @else
+                <div class="d-flex me-4">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <div class="dropdown navlink me-4">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Sign-up
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="/student/sign-up">Student sign-up</a></li>
+                              <li><a class="dropdown-item" href="/admin/sign-up">Admin sign-up</a></li>
+                            </ul>
+                          </div>
+                        <div class="dropdown navlink me-4">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Sign-in
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="/student/sign-in">Student sign-in</a></li>
+                              <li><a class="dropdown-item" href="/admin/sign-in">Admin sign-in</a></li>
+                            </ul>
+                          </div>
+                    </ul>
+                </div>
             @endauth
 
-            <div class="d-flex me-4">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <div class="dropdown navlink me-4">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Sign-up
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="/student/sign-up">Student sign-up</a></li>
-                          <li><a class="dropdown-item" href="/admin/sign-up">Admin sign-up</a></li>
-                        </ul>
-                      </div>
-                    <div class="dropdown navlink me-4">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Sign-in
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="/student/sign-in">Student sign-in</a></li>
-                          <li><a class="dropdown-item" href="/admin/sign-in">Admin sign-in</a></li>
-                        </ul>
-                      </div>
-                </ul>
-            </div>
+            
             
         </div>
     </div>
