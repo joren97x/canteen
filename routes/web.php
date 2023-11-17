@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Food;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
-use App\Models\Food;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,13 @@ Route::get('/about', function () {
     return view('Student.about');
 });
 
-Route::get('/admin/add-food', [FoodController::class, 'create']);
+Route::get('/admin/add-foods', [FoodController::class, 'create']);
+Route::get('/admin/edit-food/{food}', [FoodController::class, 'edit']);
+Route::get('/admin/view-foods', [FoodController::class, 'index']);
+Route::get('/admin/delete-food/{food}', [FoodController::class, 'delete']);
+Route::post('/admin/update-food/{food}', [FoodController::class, 'update']);
+Route::post('/admin/delete-food/{food}', [FoodController::class, 'destroy']);
+Route::get('/admin/order-history', [OrderController::class, 'index']);
 
 
 Route::post('/add-food', [FoodController::class, 'store']);

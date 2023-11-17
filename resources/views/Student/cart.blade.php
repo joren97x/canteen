@@ -18,6 +18,13 @@
                 </tr>
               </thead>
               <tbody>
+
+                @if (count($orders) <= 0)
+                    <tr>
+                        <td colspan="8" class="text-center p-5"> <h5>No foods found...</h5> <td>
+                    </tr>
+                @endif
+                
                 @foreach ($orders as $order)
                 <tr>
                     <th scope="row">{{ $order['id'] }}</th>

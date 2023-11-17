@@ -15,24 +15,29 @@
     <div>
         <div class="bg-secondary p-5 container">
             <h1>Hello admin!</h1>
+            
             <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, molestias!</h4>
         </div>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-4">
                     <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-                          Add food
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            View all foods
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            Edit food
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action">
-                            Delete food
-                        </button>
+                        <a href="/admin/add-foods">
+                            <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/add-foods') ? 'active' : '' }}" aria-current="true">
+                                Add food
+                              </button>
+                        </a>
+                        <a href="/admin/view-foods">
+                            <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/view-foods') ? 'active' : '' }}">
+                                View all foods
+                            </button>
+                        </a>
+                        
+                        <a href="/admin/order-history">
+                            <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/order-history') ? 'active' : '' }}">
+                                Order history
+                            </button>
+                        </a>
                         
                       </div>
                 </div>

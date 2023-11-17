@@ -1,29 +1,16 @@
 @extends('components.admin-layout')
 
 @section('content')
-  <form action="/add-food" method="POST" class="border p-2">
+  <form action="/admin/delete-food/{{$food->id}}" method="POST" class="border p-2">
     @csrf
-    <br style="clear: both">
-    <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> ADD NEW FOOD ITEM HERE </h3>
-
+    <h1>Delete food item</h1>
+    Name: {{$food->name}} <br>
+    Price: {{$food->price}}<br>
+    Description: {{$food->description}}<br>
+    Image: <br>
+    <img style="height: 200px; width: 200px;" class="cover" src="{{ asset('images/uploads/'.$food->image) }}" alt="">
     <div class="form-group">
-      <input type="text" class="form-control my-2" id="name" name="name" placeholder="Your Food name" required="">
-    </div>
-
-    <div class="form-group">
-      <input type="text" class="form-control my-2" id="price" name="price" placeholder="Your Food Price (INR)" required="">
-    </div>
-
-    <div class="form-group">
-      <input type="text" class="form-control my-2" id="description" name="description" placeholder="Your Food Description" required="">
-    </div>
-
-    <div class="form-group">
-      <input type="text" class="form-control my-2" id="images_path" name="image" placeholder="Your Food Image Path [images/<filename>.<extention>]" required="">
-    </div>
-
-    <div class="form-group">
-      <button type="submit" id="submit"  class="btn btn-primary pull-right"> ADD FOOD </button>
+      <button type="submit" id="submit" class="btn btn-danger pull-right"> DELETE FOOD </button>
     </div>
   </form>
 @endsection

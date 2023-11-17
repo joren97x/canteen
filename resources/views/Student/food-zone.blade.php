@@ -27,7 +27,7 @@
             @foreach($foods as $food)
                 <div class="col-3 p-3">
                     <div class="card">
-                        <img src="https://www.foodandwine.com/thmb/_hz1-1jxHmNJxNLZxIjlOs2QQ3E=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Ultimate-Veggie-Burgers-FT-Recipe-0821-5d7532c53a924a7298d2175cf1d4219f.jpg" class="card-img-top" alt="...">
+                        <img src="{{asset('images/uploads/'.$food->image)}}" style="height: 200px;" class="card-img-top" alt="...">
                     <form action="/student/add-to-cart" method="POST">
                         @csrf
                         <div class="card-body">

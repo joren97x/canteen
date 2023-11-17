@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
@@ -14,18 +14,20 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="/contact-us">Contact Us</a>
-                </li>
+                </li> --}}
             </ul>
             
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-light" href="/sign-up" role="button">
+                            <a class="nav-link text-light" role="button">
                                 Welcome {{ auth()->user()->username }}!
                             </a>
                         </li>
                         <li class="nav-item nav-link text-light dropdown">
+                            <a href="/admin/add-foods" class="text-light" style="text-decoration: none">
                                 Admin control panel
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/logout" role="button">
