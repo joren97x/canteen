@@ -6,16 +6,18 @@
     <br style="clear: both">
     <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> ADD NEW FOOD </h3>
 
-    <div class="form-group">
-      <input type="text" class="form-control my-2" name="name" placeholder="name">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Food name</span>
+      <input type="text" class="form-control" name="name" aria-describedby="basic-addon1">
     </div>
 
-    <div class="form-group">
-      <input class="form-control my-2" type="number" name="price" placeholder="price">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Food price</span>
+      <input type="text" class="form-control" name="price" aria-describedby="basic-addon1">
     </div>
-
-    <div class="form-group">
-      <input type="text" class="form-control my-2" name="description" placeholder="description">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Food description</span>
+      <input type="text" class="form-control" name="description" aria-describedby="basic-addon1">
     </div>
 
     <div class="form-group">

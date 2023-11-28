@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark ">
     <div class="container-fluid">
-        <a class="navbar-brand text-light" href="#">Canteen</a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,7 +21,7 @@
                 <div class="d-flex">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item nav-link text-light dropdown">
-                                Welcome {{auth()->user()->username}}!
+                                Welcome {{auth()->user()->fullname}}!
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/student/food-zone" role="button">
@@ -43,15 +43,11 @@
                 @else
                 <div class="d-flex me-4">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <div class="dropdown navlink me-4">
-                            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-item" href="/student/sign-up">
+                            <button class="btn btn-dark" type="button">
                               Sign-up
                             </button>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="/student/sign-up">Student sign-up</a></li>
-                              <li><a class="dropdown-item" href="/admin/sign-up">Admin sign-up</a></li>
-                            </ul>
-                          </div>
+                        </a>
                         <div class="dropdown navlink me-4">
                             <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Sign-in

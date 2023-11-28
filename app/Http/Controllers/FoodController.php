@@ -35,7 +35,7 @@ class FoodController extends Controller
         $food->name = $updatedFood['name'];
         $food->description = $updatedFood['description'];
         $food->price = $updatedFood['price'];
-        $food->image = $updatedFood['image'];
+        $food->image = $request->file('image')->getClientOriginalName();
         $food->update();
         return redirect('/admin/view-foods');
     }

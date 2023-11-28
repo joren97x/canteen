@@ -12,32 +12,23 @@ class AuthController extends Controller
     public function store(Request $request) {
         $user = $request->validate([
             'fullname' => 'required',
-            'username' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'contact' => 'required',
-            'address' => 'required',
             'password' => 'required',
-            'role' => 'required'
         ]);
+        $user['role'] = 'student';
         User::create($user);
-        if($user['role'] == "admin") {
-            return redirect('/admin/sign-in');
-        }
-        else {
-            return redirect('/student/sign-in');
-        }
-
+        return redirect('/student/sign-in');
     }
 
     public function login(Request $request) {
         $user = $request->validate([
             'email' => 'required',
             'password' => 'required',
-            'role' => 'required'
         ]);
         if(Auth::attempt($user)) {
-            if($user['role'] == "admin") {
-                return redirect('/admin/add-food');
+            if(Auth::user()->role == "admin") {
+                return redirect('/admin/add-foods');
             }
             else {
                 return redirect('/student/food-zone');

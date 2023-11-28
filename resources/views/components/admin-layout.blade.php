@@ -38,6 +38,24 @@
                                 Order history
                             </button>
                         </a>
+
+                        <a href="/admin/pending-orders">
+                            <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/pending-orders') ? 'active' : '' }}">
+                                Pending orders
+                            </button>
+                        </a>
+
+                        <a href="/admin/all-students">
+                            <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/all-students') ? 'active' : '' }}">
+                                All students
+                            </button>
+                        </a>
+
+                        <a href="/admin/all-admins">
+                            <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/all-admins') ? 'active' : '' }}">
+                                All admins
+                            </button>
+                        </a>
                         
                       </div>
                 </div>

@@ -12,8 +12,7 @@
             <a href="/student/cart">
                 <button class="btn btn-warning">Go back to cart</button>
             </a>
-            <button class="btn btn-success"> Pay online</button>
-            <button class="btn btn-success">Cash on delivery</button>
+            <button class="btn btn-success"> Pay </button>
         </div>
     </div>
     

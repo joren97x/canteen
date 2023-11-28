@@ -5,17 +5,18 @@
     @csrf
     <br style="clear: both">
     <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> EDIT FOOD </h3>
-
-    <div class="form-group">
-      <input type="text" class="form-control my-2" value="{{$food->name}}" name="name" placeholder="Your Food name" >
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Food name</span>
+      <input type="text" class="form-control" value="{{$food->name}}" aria-label="Username" name="name" aria-describedby="basic-addon1">
     </div>
 
-    <div class="form-group">
-      <input type="text" class="form-control my-2" value="{{$food->price}}" name="price" placeholder="Your Food Price (INR)" >
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Food price</span>
+      <input type="text" class="form-control" value="{{$food->price}}" aria-label="Username" name="price" aria-describedby="basic-addon1">
     </div>
-
-    <div class="form-group">
-      <input type="text" class="form-control my-2" value="{{$food->description}}" name="description" placeholder="Your Food Description" >
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Food description</span>
+      <input type="text" class="form-control" value="{{$food->description}}" aria-label="Username" name="description" aria-describedby="basic-addon1">
     </div>
     <img style="height: 200px; width: 200px;" class="cover" src="{{ asset('images/uploads/'.$food->image) }}" alt="">
     <div class="form-group">

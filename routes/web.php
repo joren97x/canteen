@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 
 /*
@@ -32,7 +33,10 @@ Route::get('/admin/view-foods', [FoodController::class, 'index']);
 Route::get('/admin/delete-food/{food}', [FoodController::class, 'delete']);
 Route::post('/admin/update-food/{food}', [FoodController::class, 'update']);
 Route::post('/admin/delete-food/{food}', [FoodController::class, 'destroy']);
-Route::get('/admin/order-history', [OrderController::class, 'index']);
+Route::get('/admin/order-history', [OrderController::class, 'order_history']);
+Route::get('/admin/pending-orders', [OrderController::class, 'pending_orders']);
+Route::get('/admin/all-students', [UserController::class, 'all_students']);
+Route::get('/admin/all-admins', [UserController::class, 'all_admins']);
 
 
 Route::post('/add-food', [FoodController::class, 'store']);
@@ -50,9 +54,9 @@ Route::post('/student/payment', [CartController::class, 'payment']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/student/sign-up', [AuthController::class, 'student_sign_up']);
-Route::get('/admin/sign-up', [AuthController::class, 'admin_sign_up']);
+// Route::get('/admin/sign-up', [AuthController::class, 'admin_sign_up']);
 Route::post('/student/sign-up', [AuthController::class, 'store']);
-Route::post('/admin/sign-up', [AuthController::class, 'store']);
+// Route::post('/admin/sign-up', [AuthController::class, 'store']);
 
 Route::get('/admin/sign-in', [AuthController::class, 'admin_sign_in']);
 Route::post('/admin/sign-in', [AuthController::class, 'login']);
