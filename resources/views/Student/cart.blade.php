@@ -32,7 +32,13 @@
                     <td>{{ $order['quantity'] }} </td>
                     <td> ₱{{ $order->food['price'] }} </td>
                     <td> ₱{{ ((int)$order->food['price']) * $order['quantity'] }} </td>
-                    <td> <button class="btn btn-danger btn-sm">Remove</button> </td>
+                    <td> 
+                        <form action="/student/delete-food/{{ $order->id }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
                   </tr>
                 @endforeach
                 <tr>
@@ -43,7 +49,11 @@
           </table>
           <div class="row">
             <div class="col-10">
-                <button class="btn btn-danger btn-sm">Empty cart</button>
+                <form action="/student/clear-cart" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm" type="submit">Empty cart</button>
+                </form>
                 <a href="/student/food-zone">
                     <button class="btn btn-warning btn-sm">Continue shopping</button>
                 </a>

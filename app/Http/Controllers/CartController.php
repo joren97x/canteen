@@ -36,6 +36,17 @@ class CartController extends Controller
         return view('student.payment', ['total' => $request->total]);
     }
 
+    public function clear_cart() {
+        $orders = Cart::where('user_id', auth()->user()->id)->get();
+        $orders->delete();
+        return back();
+    }
+
+    public function destroy(Cart $food) {
+        $food->delete();
+        return back();
+    }
+
     public function confirm_payment() {
         $orders = Cart::where('user_id', auth()->user()->id)->get();
         foreach($orders as $order) {

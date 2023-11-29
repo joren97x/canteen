@@ -51,6 +51,7 @@ Route::get('/student/food-zone', function () {
 
 Route::get('/student/cart', [CartController::class, 'index']);
 Route::post('/student/payment', [CartController::class, 'payment']);
+Route::delete('/student/delete-food/{food}', [CartController::class, 'destroy']);
 Route::post('/student/confirm-payment', [CartController::class, 'confirm_payment']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
