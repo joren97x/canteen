@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Food;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,22 @@ class CartController extends Controller
 
     public function payment(Request $request) {
         return view('student.payment', ['total' => $request->total]);
+    }
+
+    public function confirm_payment() {
+        $orders = Cart::where('user_id', auth()->user()->id)->get();
+        foreach($orders as $order) {
+            $o = [
+                'food_id' => $order->food_id,
+                'student_id' => $order->user_id,
+                'quantity' => $order->quantity,
+                'status' => 'pending'
+            ];
+            Order::create($o);
+        }
+        Cart::where('user_id' ,auth()->user()->id)->delete();
+        // $orders->delete();
+        return redirect('/student/cart');
     }
 
 }

@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('Student.about');
 });
-
+Route::put('/admin/complete-order/{order}', [OrderController::class, 'update']);
 Route::get('/admin/add-foods', [FoodController::class, 'create']);
 Route::get('/admin/edit-food/{food}', [FoodController::class, 'edit']);
 Route::get('/admin/view-foods', [FoodController::class, 'index']);
@@ -51,6 +51,7 @@ Route::get('/student/food-zone', function () {
 
 Route::get('/student/cart', [CartController::class, 'index']);
 Route::post('/student/payment', [CartController::class, 'payment']);
+Route::post('/student/confirm-payment', [CartController::class, 'confirm_payment']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/student/sign-up', [AuthController::class, 'student_sign_up']);

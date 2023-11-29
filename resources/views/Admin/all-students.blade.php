@@ -1,7 +1,7 @@
 @extends('components.admin-layout')
 
 @section('content')
-    <h2>Show all users</h2>
+    <h2 class="text-center">Show all users</h2>
     <table class="table border text-center">
         <thead>
             <th>id</th>
@@ -19,12 +19,7 @@
                 <td>{{ $student->email }}</td>
                 <td>{{ $student->contact }}</td>
                 <td>
-                    <a href="/admin/edit-student/{{$student->id}}">
-                        <button class="btn btn-primary">Edit</button>
-                    </a>
-                    <a href="/admin/delete-student/{{$student->id}}">
-                        <button class="btn btn-danger">Delete</button>
-                    </a>
+                    <button class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
 

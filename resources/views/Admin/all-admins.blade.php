@@ -1,7 +1,7 @@
 @extends('components.admin-layout')
 
 @section('content')
-    <h2>Show all admins</h2>
+    <h2 class="text-center">Show all admins</h2>
     <table class="table border text-center">
         <thead>
             <th>id</th>
@@ -19,15 +19,9 @@
                 <td>{{ $admin->email }}</td>
                 <td>{{ $admin->contact }}</td>
                 <td>
-                    <a href="/admin/edit-admin/{{$admin->id}}">
-                        <button class="btn btn-primary">Edit</button>
-                    </a>
-                    <a href="/admin/delete-admin/{{$admin->id}}">
-                        <button class="btn btn-danger">Delete</button>
-                    </a>
+                    <button class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
-
             @endforeach
         </tbody>
     </table>

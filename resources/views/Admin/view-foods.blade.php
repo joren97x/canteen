@@ -20,14 +20,13 @@
                 <td>{{ $food->description }}</td>
                 <td>
                     <a href="/admin/edit-food/{{$food->id}}">
-                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-primary btn-sm">Edit</button>
                     </a>
                     <a href="/admin/delete-food/{{$food->id}}">
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger btn-sm">Delete</button>
                     </a>
                 </td>
             </tr>
-
             @endforeach
         </tbody>
     </table>
