@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/about', function () {
     return view('Student.about');
 });
 Route::put('/admin/complete-order/{order}', [OrderController::class, 'update']);
+Route::post('/admin/change-status/{food}', [FoodController::class, 'update_food_status']);
 Route::get('/admin/add-foods', [FoodController::class, 'create']);
 Route::get('/admin/edit-food/{food}', [FoodController::class, 'edit']);
 Route::get('/admin/view-foods', [FoodController::class, 'index']);
@@ -54,6 +56,7 @@ Route::post('/student/payment', [CartController::class, 'payment']);
 Route::delete('/student/delete-food/{food}', [CartController::class, 'destroy']);
 Route::post('/student/confirm-payment', [CartController::class, 'confirm_payment']);
 Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/student/order-history', [OrderController::class, 'order']);
 
 Route::get('/student/sign-up', [AuthController::class, 'student_sign_up']);
 // Route::get('/admin/sign-up', [AuthController::class, 'admin_sign_up']);
@@ -65,6 +68,3 @@ Route::post('/admin/sign-in', [AuthController::class, 'login']);
 
 Route::get('/student/sign-in', [AuthController::class, 'student_sign_in']);
 Route::post('/student/sign-in', [AuthController::class, 'login']);
-
-
-

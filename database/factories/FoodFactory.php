@@ -33,6 +33,7 @@ class FoodFactory extends Factory
             'name' => $this->faker->randomElement($snackFoodNamesPhilippines),
             'price' => $this->faker->numberBetween(10, 50),
             'description' => $this->faker->sentence(7),
+            'is_visible' => true,
             'image' => $image
         ];
     }
