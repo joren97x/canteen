@@ -13,7 +13,7 @@
                     <th>Quantity</th>
                     <th>Total Price</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    {{-- <th>Actions</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -25,9 +25,9 @@
                     <td>{{ $order->quantity }}</td>
                     <td>{{ $order->quantity * $order->food->price }}</td>
                     <td>{{ $order->status }}</td>
-                    <td>
+                    {{-- <td>
                         <button class="btn btn-danger btn-sm">Complete</button>
-                    </td>
+                    </td> --}}
                 </tr>
                 @endforeach
             </tbody>

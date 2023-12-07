@@ -54,7 +54,7 @@ class CartController extends Controller
                 'food_id' => $order->food_id,
                 'student_id' => $order->user_id,
                 'quantity' => $order->quantity,
-                'status' => 'pending'
+                'status' => 'Processing'
             ];
             Order::create($o);
         }

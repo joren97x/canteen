@@ -11,7 +11,8 @@
             <tr>
                 <th>Order ID</th>
                 <th>Items</th>
-                <th>Total Price</th>
+                <th>Price</th>
+                <th>Status</th>
                 <th>Date</th>
             </tr>
         </thead>
@@ -19,15 +20,9 @@
             @foreach($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
-                <td>{{ $order }}</td>
-                <td>
-                    <ul>
-                        {{-- @foreach($order->items as $item)
-                        <li>{{ $item->food_name }} - Quantity: {{ $item->quantity }}</li>
-                        @endforeach --}}
-                    </ul>
-                </td>
-                <td>{{ $order->total_price }}</td>
+                <td>{{ $order->food->name }}</td>
+                <td>{{ $order->food->price }}</td>
+                <td>{{ $order->status }}</td>
                 <td>{{ $order->created_at->format('F j, Y \a\t h:i A') }}</td>
             </tr>
             @endforeach

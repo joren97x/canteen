@@ -13,6 +13,7 @@ class Food extends Model
         'name',
         'price',
         'description',
-        'image'
+        'image',
+        'is_visible'
     ];
 }

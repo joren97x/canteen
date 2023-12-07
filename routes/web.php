@@ -36,9 +36,11 @@ Route::get('/admin/delete-food/{food}', [FoodController::class, 'delete']);
 Route::post('/admin/update-food/{food}', [FoodController::class, 'update']);
 Route::post('/admin/delete-food/{food}', [FoodController::class, 'destroy']);
 Route::get('/admin/order-history', [OrderController::class, 'order_history']);
+Route::get('/admin/sales-report', [OrderController::class, 'sales_report']);
 Route::get('/admin/pending-orders', [OrderController::class, 'pending_orders']);
 Route::get('/admin/all-students', [UserController::class, 'all_students']);
 Route::get('/admin/all-admins', [UserController::class, 'all_admins']);
+Route::put('/admin/update-order-status', [OrderController::class, 'update_order_status']);
 
 
 Route::post('/add-food', [FoodController::class, 'store']);
@@ -48,7 +50,7 @@ Route::get('/contact-us', function () {
 });
 
 Route::get('/student/food-zone', function () {
-    return view('Student.food-zone', ['foods' => Food::all()]);
+    return view('Student.food-zone', ['foods' => Food::where('is_visible', true)->get()]);
 });
 
 Route::get('/student/cart', [CartController::class, 'index']);
