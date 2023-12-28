@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark ">
     <div class="container-fluid">
-        
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,27 +16,23 @@
                     <a class="nav-link text-light" href="/contact-us">Contact Us</a>
                 </li> --}}
             </ul>
-            
-                <div class="d-flex">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light" role="button">
-                                Welcome {{ auth()->user()->username }}!
-                            </a>
-                        </li>
-                        <li class="nav-item nav-link text-light dropdown">
-                            <a href="/admin/add-foods" class="text-light" style="text-decoration: none">
-                                Admin control panel
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-light" href="/logout" role="button">
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            
+
+            <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light" role="button">
+                            Welcome {{ auth()->user()->username }}!
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light" href="/logout" role="button">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </div>
 </nav>

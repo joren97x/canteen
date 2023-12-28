@@ -23,6 +23,13 @@
         </button>
     </div>
     <h1 class="text-center">Welcome To Canteen Food Ordering</h1>
+    <div class="input-group mb-3 ms-5 w-50">
+        <form action="/student/food-zone" method="GET">
+        @csrf
+            <input type="text" name="q" class="form-control" placeholder="Search food zone..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+        </form>
+      </div>
         <div class="row">
             @foreach($foods as $food)
                 <div class="col-3 p-3">

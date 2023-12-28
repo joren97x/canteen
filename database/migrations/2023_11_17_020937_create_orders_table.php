@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('food_id');
             $table->foreignId('student_id');
             $table->integer('quantity');
+            $table->integer('total_price');
             $table->string('status');
             $table->timestamps();
         });

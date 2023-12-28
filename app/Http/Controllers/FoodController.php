@@ -49,6 +49,13 @@ class FoodController extends Controller
         return view('admin.add-foods');
     }
 
+    public function index_student(?string $q = null) {
+        if($q) {
+            dd("go");
+        }
+        return view('student.food-zone', ['foods' => Food::all()]);
+    }
+
     public function index() {
         return view('admin.view-foods', ['foods' => Food::all()]);
     }
