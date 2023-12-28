@@ -14,7 +14,7 @@
 
 <body>
     @include('components.student-navbar')
-    <div>
+    <div style="background-color: yellow; height: 100vh">
         @yield('content')
     </div>
 </body>

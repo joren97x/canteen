@@ -23,10 +23,10 @@
                     <td>{{ $food->price }}</td>
                     <td>{{ $food->description }}</td>
                     <td>
-                        @if($food->is_hidden)
-                        <span class="badge bg-danger">Hidden</span>
-                        @else
+                        @if($food->is_visible)
                         <span class="badge bg-success">Visible</span>
+                        @else
+                        <span class="badge bg-danger">Hidden</span>
                         @endif
                     </td>
                     <td>
@@ -35,10 +35,11 @@
                             <a href="/admin/delete-food/{{$food->id}}" class="btn btn-danger btn-sm">Delete</a>
                             <form action="/admin/change-status/{{$food->id}}" method="POST">
                                 @csrf
-                                @if($food->is_hidden)
-                                <button type="submit" class="btn btn-success btn-sm">Show</button>
+                                @method('PUT')
+                                @if($food->is_visible)
+                                <button type="submit" value="hide" name="status" class="btn btn-warning btn-sm">Hide</button>
                                 @else
-                                <button type="submit" class="btn btn-warning btn-sm">Hide</button>
+                                <button type="submit" value="show" name="status" class="btn btn-success btn-sm">Show</button>
                                 @endif
                             </form>
                         </div>

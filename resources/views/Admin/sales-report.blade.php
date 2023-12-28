@@ -1,13 +1,15 @@
-@extends('layouts.app')
+@extends('components.admin-layout')
+
 
 @section('content')
 <div class="container">
     <h2 class="text-center">Sales Report</h2>
-    <form method="GET" action="{{ route('generate-report') }}">
+    <form method="GET" action="/admin/sales-report">
+        @csrf
         <div class="form-group row">
             <label for="start_date" class="col-md-2 col-form-label text-md-right">Start Date:</label>
             <div class="col-md-4">
-                <input id="start_date" type="date" class="form-control" name="start_date" required>
+                <input id="start_date" type="date" class="form-control" name="start_date" >
             </div>
 
             <label for="end_date" class="col-md-2 col-form-label text-md-right">End Date:</label>
@@ -25,26 +27,38 @@
         </div>
     </form>
 
-    @if(isset($salesData))
-    <h3 class="mt-4 mb-2">Sales Report from {{ $start_date }} to {{ $end_date }}</h3>
-    <table class="table border text-center">
-        <thead>
+    @if(count($orders) > 1) 
+    <table class="table table-bordered table-hover text-center">
+        <thead class="thead-dark">
             <tr>
-                <th>Order ID</th>
-                <th>Total Sales</th>
-                <th>Date</th>
+                <th>ID</th>
+                <th>Food Name</th>
+                <th>Student Name</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                {{-- <th>Actions</th> --}}
             </tr>
         </thead>
         <tbody>
-            @foreach($salesData as $data)
+            @foreach($orders as $order)
             <tr>
-                <td>{{ $data->id }}</td>
-                <td>{{ $data->total_sales }}</td>
-                <td>{{ $data->created_at->format('F j, Y \a\t h:i A') }}</td>
+                <td>{{ $order->id }}</td>
+                <td>{{ $order->food->name }}</td>
+                <td>{{ $order->student->fullname }}</td>
+                <td>{{ $order->quantity }}</td>
+                <td>{{ $order->quantity * $order->food->price }}</td>
+                {{-- <td>
+                    <button class="btn btn-danger btn-sm">Complete</button>
+                </td> --}}
             </tr>
             @endforeach
+            <tr>
+                <td colspan="4" class="text-end">Total Sales</td>
+                <td>{{ $total }}</td>
+            </tr>
         </tbody>
     </table>
-    @endif
+    @endif    
+
 </div>
 @endsection

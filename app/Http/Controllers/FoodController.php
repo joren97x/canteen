@@ -49,12 +49,20 @@ class FoodController extends Controller
         return view('admin.add-foods');
     }
 
-    public function index_student(?string $q = null) {
-        if($q) {
-            dd("go");
-        }
-        return view('student.food-zone', ['foods' => Food::all()]);
+    public function index_student() {
+        return view('student.food-zone', ['foods' => Food::where('is_visible', true)->get()]);
     }
+
+    public function index_student_search(Request $request) {
+        $searchTerm = $request->search;
+    
+        $foods = Food::where('is_visible', true)
+                      ->where('name', 'like', "%$searchTerm%")
+                      ->get();
+    
+        return view('student.food-zone', ['foods' => $foods]);
+    }
+    
 
     public function index() {
         return view('admin.view-foods', ['foods' => Food::all()]);
@@ -66,6 +74,12 @@ class FoodController extends Controller
     
     public function delete(Food $food) {
         return view('admin.delete-food', ['food' => $food]);
+    }
+
+    public function update_food_status(Food $food, Request $request) {
+        $food->is_visible = !$food->is_visible;
+        $food->update();
+        return back();
     }
 
 }

@@ -15,6 +15,11 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
+            /* Set the background image */
+            background-image: url('images/uploads/yellow.jpg');
+            background-size: cover;
+            background-position: center;
+            /* Additional styles for better readability */
         }
 
         .container {
@@ -22,6 +27,10 @@
             margin: 0 auto;
             padding: 20px;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* To make the content section semi-transparent */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
