@@ -35,6 +35,7 @@
                             {{-- <a href="/admin/delete-food/{{$food->id}}" class="btn btn-danger btn-sm">Delete</a> --}}
                             <form action="/admin/change-status/{{$food->id}}" method="POST">
                                 @csrf
+                                @method('PUT')
                                 @if($food->is_visible)
                                 <button type="submit" value="hide" name="status" class="btn btn-warning btn-sm">Hide</button>
                                 @else

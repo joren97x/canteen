@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="text-center mb-4">Order History</h2>
+    <h2 class="text-center mb-4">Ready to pick up orders</h2>
     <div class="table-responsive">
         <table class="table table-bordered table-hover text-center">
             <thead class="thead-dark">
@@ -25,10 +25,11 @@
                     <td>{{ $order->status }}</td>
                     <td>
                         <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$order->id}}">View</button>
-                        <form action="/admin/delete-order/{{ $order->id }}" method="POST">
-                            @method('DELETE')
+                        <form action="/admin/update-order/{{ $order->id }}" method="POST">
+                            @method('PUT')
                             @csrf
-                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            <input type="hidden" value="completed" name="status">
+                            <button class="btn btn-primary btn-sm" type="submit">Complete order</button>
                         </form>
                     </td>
                 </tr>

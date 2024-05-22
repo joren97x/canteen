@@ -30,7 +30,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-light" href="/student/cart" role="button">
-                            Cart(n)
+                            Cart
                         </a>
                     </li>
                     <li class="nav-item dropdown">

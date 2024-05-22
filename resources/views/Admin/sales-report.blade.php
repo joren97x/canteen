@@ -1,5 +1,6 @@
 @extends('components.admin-layout')
 
+
 @section('content')
 <div class="container">
     <h2 class="text-center">Sales Report</h2>
@@ -13,7 +14,7 @@
 
             <label for="end_date" class="col-md-2 col-form-label text-md-right">End Date:</label>
             <div class="col-md-4">
-                <input id="end_date" type="date" class="form-control" name="end_date" >
+                <input id="end_date" type="date" class="form-control" name="end_date" required>
             </div>
         </div>
 

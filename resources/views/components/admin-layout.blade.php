@@ -42,6 +42,12 @@
                         </button>
                     </a>
 
+                    <a href="/admin/ready-orders">
+                        <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/ready-orders') ? 'active' : '' }}">
+                            Ready to pick up orders
+                        </button>
+                    </a>
+
                     <a href="/admin/pending-orders">
                         <button type="button" class="list-group-item list-group-item-action {{ request()->is('admin/pending-orders') ? 'active' : '' }}">
                             Pending orders

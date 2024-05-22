@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Food;
-use App\Models\Order;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\OrderedFood;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -48,18 +49,35 @@ class CartController extends Controller
     }
 
     public function confirm_payment() {
-        $orders = Cart::where('user_id', auth()->user()->id)->get();
-        foreach($orders as $order) {
-            $o = [
-                'food_id' => $order->food_id,
-                'student_id' => $order->user_id,
-                'quantity' => $order->quantity,
-                'status' => 'Processing'
-            ];
-            Order::create($o);
+        $foodFromCart = Cart::where('user_id', auth()->user()->id)->get();
+
+        $totalQuantity = 0;
+        $totalPrice = 0;
+
+        foreach($foodFromCart as $f) {
+            $food = Food::find($f->food_id);
+            $totalQuantity += $f->quantity;
+            $totalPrice += ($f->quantity * $food->price);
+        }
+
+        $o = [
+            'student_id' => auth()->user()->id,
+            'quantity' => $totalQuantity,
+            'status' => 'Processed',
+            'total_price' => $totalPrice,
+        ];
+        $order = Order::create($o);
+        $orderId = $order->id;
+        foreach ($foodFromCart as $food) {
+            $price = $food->price * $food->quantity;
+            OrderedFood::create([
+                'order_id' => $orderId,
+                'food_id' => $food->food_id,
+                'quantity' => $food->quantity,
+                'price' => $price,
+            ]);
         }
         Cart::where('user_id' ,auth()->user()->id)->delete();
-        // $orders->delete();
         return redirect('/student/cart');
     }
 
