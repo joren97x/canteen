@@ -11,7 +11,7 @@
                     <th>Full Name</th>
                     <th>Email</th>
                     <th>Contact</th>
-                    <th>Actions</th>
+                    {{-- <th>Actions</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -21,9 +21,9 @@
                     <td>{{ $admin->fullname }}</td>
                     <td>{{ $admin->email }}</td>
                     <td>{{ $admin->contact }}</td>
-                    <td>
+                    {{-- <td>
                         <button class="btn btn-danger btn-sm">Delete</button>
-                    </td>
+                    </td> --}}
                 </tr>
                 @endforeach
             </tbody>

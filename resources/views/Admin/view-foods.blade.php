@@ -32,7 +32,7 @@
                     <td>
                         <div class="btn-group" role="group">
                             <a href="/admin/edit-food/{{$food->id}}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="/admin/delete-food/{{$food->id}}" class="btn btn-danger btn-sm">Delete</a>
+                            {{-- <a href="/admin/delete-food/{{$food->id}}" class="btn btn-danger btn-sm">Delete</a> --}}
                             <form action="/admin/change-status/{{$food->id}}" method="POST">
                                 @csrf
                                 @if($food->is_visible)
