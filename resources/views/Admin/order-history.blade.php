@@ -21,15 +21,15 @@
                     <td>{{ $order->id }}</td>
                     <td>{{ $order->student->fullname }}</td>
                     <td>{{ $order->quantity }}</td>
-                    <td>{{ $order->total_price }}</td>
+                    <td>{{ $order->total }}</td>
                     <td>{{ $order->status }}</td>
                     <td>
                         <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$order->id}}">View</button>
-                        <form action="/admin/delete-order/{{ $order->id }}" method="POST">
+                        {{-- <form action="/admin/delete-order/{{ $order->id }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                        </form>
+                        </form> --}}
                     </td>
                 </tr>
                 <div class="modal fade" id="exampleModal{{$order->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,12 +40,13 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            @foreach ($order->orderedFoods as $orderedFood)
+                            @foreach ($order->foods as $food)
                             <div class="card" style="width: 100%;">
-                                <img src="{{asset('images/uploads/'.$orderedFood->food->image)}}" style="height: 50px; width: 50px"  alt="...">
+                                <img src="{{asset('images/uploads/'.$food->image)}}" style="height: 50px; width: 50px"  alt="...">
                                 <div class="card-body">
-                                  <h5 class="card-title">{{ $orderedFood->food->name }}</h5>
-                                  <p class="card-text">Quantity: {{$orderedFood->quantity}} </p>
+                                  <h5 class="card-title">{{ $food->name }}</h5>
+                                  <h5 class="card-title">Price: P{{ $food->price }}</h5>
+                                  <p class="card-text">Quantity: {{$food->quantity}} </p>
                                 </div>
                               </div>
                             @endforeach

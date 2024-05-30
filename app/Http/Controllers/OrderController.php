@@ -28,12 +28,19 @@ class OrderController extends Controller
     public function order_history()
     {
         $orders = Order::where('status', 'completed')->get();
+        // dd($orders);
         foreach ($orders as $order) {
-            $order->orderedFoods = OrderedFood::where('order_id', $order->id)->get();
-            foreach($order->orderedFoods as $f) {
-                $f->food = Food::find($f->food_id);
-            }
             $order->student = User::find($order->student_id);
+            $orderedFoods = OrderedFood::where('order_id', $order->id)->get();
+            $foods = [];
+            $order->total = 0;
+            foreach($orderedFoods as $orderedFood) {
+                $food = Food::find($orderedFood->food_id);
+                $food->quantity = $orderedFood->quantity;
+                $order->total += $orderedFood->quantity * $food->price;
+                $foods[] = $food;
+            }
+            $order->foods = $foods;
         }
         return view('admin.order-history', ['orders' => $orders]);
     }

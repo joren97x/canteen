@@ -27,12 +27,12 @@
         </div>
     </form>
 
-    @if(count($orders) > 1) 
+    @if(count($orders) >= 1) 
     <table class="table table-bordered table-hover text-center">
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>Food Name</th>
+                <th>Foods</th>
                 <th>Student Name</th>
                 <th>Quantity</th>
                 <th>Total Price</th>
@@ -43,10 +43,14 @@
             @foreach($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
-                <td>{{ $order->food->name }}</td>
+                <td>
+                    @foreach($order->foods as $food)
+                    {{ $food->name }}
+                    @endforeach
+                </td>
                 <td>{{ $order->student->fullname }}</td>
                 <td>{{ $order->quantity }}</td>
-                <td>{{ $order->quantity * $order->food->price }}</td>
+                <td> {{ $order->total }} </td>
                 {{-- <td>
                     <button class="btn btn-danger btn-sm">Complete</button>
                 </td> --}}
