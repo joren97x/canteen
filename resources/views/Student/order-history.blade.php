@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $order->id }}</td>
                 <td>{{ $order->status }}</td>
-                <td>{{ $order->total_price }}</td>
+                <td>{{ $order->total }}</td>
                 <td>{{ $order->created_at->format('F j, Y \a\t h:i A') }}</td>
                 <td>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal{{$order->id}}">View</button>
@@ -29,7 +29,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Order details</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -38,12 +38,14 @@
                                     <img src="{{asset('images/uploads/'.$orderedFood->food->image)}}" style="height: 69px; width: 69px;" alt="...">
                                     <div class="card-body">
                                       <h5 class="card-title"> {{$orderedFood->food->name}} </h5>
+                                      <p>Food price: {{$orderedFood->food->price}} </p>
                                       <p class="card-text"> Quantity: {{$orderedFood->quantity}} </p>
                                     </div>
                                   </div>
                                 @endforeach
                             </div>
                             <div class="modal-footer">
+                              <strong>Total P{{ $order->total }}</strong>
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                           </div>

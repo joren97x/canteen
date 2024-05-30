@@ -21,7 +21,7 @@
                     <td>{{ $order->id }}</td>
                     <td>{{ $order->student->fullname }}</td>
                     <td>{{ $order->quantity }}</td>
-                    <td>{{ $order->total_price }}</td>
+                    <td>{{ $order->total }}</td>
                     <td>{{ $order->status }}</td>
                     <td>
                         <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$order->id}}">View</button>

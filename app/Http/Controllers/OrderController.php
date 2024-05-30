@@ -17,8 +17,10 @@ class OrderController extends Controller
         $orders = Order::where('student_id', auth()->user()->id)->get();
         foreach ($orders as $order) {
             $order->orderedFoods = OrderedFood::where('order_id', $order->id)->get();
+            $order->total = 0;
             foreach($order->orderedFoods as $f) {
                 $f->food = Food::find($f->food_id);
+                $order->total += $f->food->price * $f->quantity;
             }
             $order->student = User::find($order->student_id);
         }
@@ -50,8 +52,11 @@ class OrderController extends Controller
         $orders = Order::where('status', 'Processed')->get();
         foreach ($orders as $order) {
             $order->orderedFoods = OrderedFood::where('order_id', $order->id)->get();
+            $order->total = 0;
+
             foreach($order->orderedFoods as $f) {
                 $f->food = Food::find($f->food_id);
+                $order->total += $f->quantity * $f->food->price;
             }
             $order->student = User::find($order->student_id);
         }
@@ -63,8 +68,10 @@ class OrderController extends Controller
         $orders = Order::where('status', 'ready to pick up')->get();
         foreach ($orders as $order) {
             $order->orderedFoods = OrderedFood::where('order_id', $order->id)->get();
+            $order->total = 0;
             foreach($order->orderedFoods as $f) {
                 $f->food = Food::find($f->food_id);
+                $order->total += $f->quantity * $f->food->price;
             }
             $order->student = User::find($order->student_id);
         }

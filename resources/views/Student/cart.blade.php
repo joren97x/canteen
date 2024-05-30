@@ -59,12 +59,61 @@
                 </a>
             </div>
             <div class="col-2">
-                <form action="/student/payment" method="post">
+                <form id="payment-form" action="/student/confirm-payment" method="post">
                     @csrf
                     <input type="hidden" name="total" value="{{$total}}">
-                    <button class=" ms-5 btn btn-success btn-sm" type="submit">Check out</button>
+                    <button id="checkout-button" class="ms-5 btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Check out</button>
                 </form>
             </div>
           </div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cart</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="response-message"></div>
+                            <h4>Total: {{ $total }}</h4>
+                        </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+          </div>
     </div>
+<script>
+    $(document).ready(function() {
+        $('#checkout-button').click(function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = $('#payment-form');
+            var url = form.attr('action');
+            var data = form.serialize(); // Serialize form data
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data,
+                success: function(response) {
+                    console.log(response)
+                    // Handle the response from the server
+                    $('#response-message').html('<div class="alert alert-success text-h5">Please proceed to the counter.</div>');
+                },
+                error: function(xhr) {
+                    console.log(response)
+                    // Handle errors
+                    $('#response-message').html('<div class="alert alert-danger text-h5">Sorry, something went wrong...</div>');
+                }
+            });
+        });
+        
+        $('#exampleModal').on('hidden.bs.modal', function () {
+            location.reload(); // Refresh the page when the modal is closed
+        });
+    });
+</script>
 @endsection

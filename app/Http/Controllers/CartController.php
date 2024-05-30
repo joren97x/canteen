@@ -54,6 +54,7 @@ class CartController extends Controller
         $totalQuantity = 0;
         $totalPrice = 0;
 
+        dd($foodFromCart);
         foreach($foodFromCart as $f) {
             $food = Food::find($f->food_id);
             $totalQuantity += $f->quantity;
@@ -78,7 +79,7 @@ class CartController extends Controller
             ]);
         }
         Cart::where('user_id' ,auth()->user()->id)->delete();
-        return redirect('/student/cart');
+        return response('confirmed');
     }
 
 }
